@@ -1,0 +1,13 @@
+[Unit]
+Description=Service de partage de connexion NAT & DHCP (Wi-Fi vers Ethernet)
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/nat_dhcp.sh start
+ExecStop=/usr/local/bin/nat_dhcp.sh stop
+ExecReload=/usr/local/bin/nat_dhcp.sh restart
+
+[Install]
+WantedBy=multi-user.target
